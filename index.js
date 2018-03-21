@@ -1,12 +1,8 @@
 function* gen() {
-  try {
-  const error = yield 9;
-  } catch(e) {
-    console.log('ERROR ->> ', e);
-  }
+  const res = yield 'Foo?';
+  return res;
 }
 
-const _gen = gen();
-console.log(_gen.next());
-
-_gen.throw('SOME ERROR');
+const generator = gen();
+console.log(generator.next().value);
+console.log(generator.next('YES').value);
