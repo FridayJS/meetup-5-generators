@@ -1,8 +1,8 @@
-function* gen() {
+function* makeGenerator() {
   const res = yield 'Foo?';
   return res;
 }
 
-const generator = gen();
+const generator = makeGenerator();
 console.log(generator.next().value);
 console.log(generator.next('YES').value);
