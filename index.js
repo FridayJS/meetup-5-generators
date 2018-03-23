@@ -1,4 +1,4 @@
-function* gen() {
+function* makeGenerator() {
   try {
   const error = yield 9;
   } catch(e) {
@@ -6,7 +6,7 @@ function* gen() {
   }
 }
 
-const _gen = gen();
-console.log(_gen.next());
+const generator = makeGenerator();
+console.log(generator.next());
 
-_gen.throw('SOME ERROR');
+generator.throw('SOME ERROR');
