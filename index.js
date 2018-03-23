@@ -1,15 +1,24 @@
-function* makeGenerator() {
-  yield 1;
-  yield 2;
-  yield 'foo';
-  return 'bar';
+class RangeIterator {
+  constructor(start, stop) {
+    this.value = start;
+    this.stop = stop;
+  }
+
+  [Symbol.iterator]() { return this; }
+
+  next() {
+    var value = this.value;
+    if (value < this.stop) {
+      this.value++;
+      return {done: false, value: value};
+    } else {
+      return {done: true, value: undefined};
+    }
+  }
 }
 
-const generator = makeGenerator();
+function range(start, stop) {
+  return new RangeIterator(start, stop);
+}
 
-console.log(generator.next());
-console.log(generator.next());
-console.log(generator.next());
-console.log(generator.next()); // done
-console.log(generator.next()); 
-
+console.log(...range(50, 55));
