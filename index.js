@@ -1,20 +1,9 @@
-const str = 'abc';
-const arr = ['a', 'b', 'c'];
-const typedArr = new Int16Array();
-const map = new Map();
-const set = new Set(['a', 'b', 'c']);
-const obj = new Object();
+/** CUSTOM ITERATORS */
 
-console.log(str[Symbol.iterator]);
-console.log(arr[Symbol.iterator]);
-console.log(typedArr[Symbol.iterator]);
-console.log(typedArr[Symbol.iterator]);
-console.log(map[Symbol.iterator]);
-console.log(set[Symbol.iterator]);
+const obj = {
+  foo: 'foo',
+  bar: 'bar'
+};
 
-console.log(obj[Symbol.iterator]); // undefined
-
-try {
-  for (let v of anotherObj) console.log(v); // throws an error
-} catch (e) { console.log('ERROR'); }
+for (let v of obj) console.log(v);
 
